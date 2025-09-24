@@ -4,7 +4,7 @@ export default function VisualizzazioneOrario() {
   // Mock structure for demonstration
   const giorni = ['Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì'];
   const ore = [1, 2, 3, 4, 5, 'M', 6, 7];
-  const docenti = ['FELICI', 'PAGLIARI', 'BONAZZOLI', 'MARTINI'];
+  const docenti = ['BIANCHI', 'ROSSI', 'VERDI', 'NERI'];
 
   return (
     <div className="space-y-6">
@@ -67,7 +67,7 @@ export default function VisualizzazioneOrario() {
             <AlertTriangle className="w-6 h-6 text-yellow-600" />
             <div>
               <p className="font-semibold text-yellow-900">1 Compresenza</p>
-              <p className="text-sm text-yellow-700">Emma 2B - recupero mensa</p>
+              <p className="text-sm text-yellow-700">Rossi 2B - recupero mensa</p>
             </div>
           </div>
         </div>
@@ -123,8 +123,8 @@ export default function VisualizzazioneOrario() {
                             ${ora === 'M' ? 'bg-green-100' : ''}
                             ${Math.random() > 0.7 ? 'bg-gray-100' : ''}
                           `}>
-                        {ora === 'M' && Math.random() > 0.5 ? 'Elisa 1A' :
-                         ora !== 'M' && Math.random() > 0.6 ? `${Math.random() > 0.5 ? 'Emma' : 'Marco'} ${Math.floor(Math.random() * 5) + 1}${String.fromCharCode(65 + Math.floor(Math.random() * 3))}` : ''}
+                        {ora === 'M' && Math.random() > 0.5 ? 'Rossi 1A' :
+                         ora !== 'M' && Math.random() > 0.6 ? `${Math.random() > 0.5 ? 'Bianchi' : 'Verdi'} ${Math.floor(Math.random() * 5) + 1}${String.fromCharCode(65 + Math.floor(Math.random() * 3))}` : ''}
                       </td>
                     ))
                   )}
@@ -146,9 +146,9 @@ export default function VisualizzazioneOrario() {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">Slot Selezionato</label>
             <div className="bg-gray-50 rounded p-3 text-sm">
-              <p><strong>Docente:</strong> FELICI</p>
+              <p><strong>Docente:</strong> BIANCHI</p>
               <p><strong>Giorno:</strong> Lunedì, Ora 1</p>
-              <p><strong>Alunno Attuale:</strong> Emma 2B</p>
+              <p><strong>Alunno Attuale:</strong> Rossi 2B</p>
             </div>
           </div>
 
@@ -157,9 +157,9 @@ export default function VisualizzazioneOrario() {
             <div className="space-y-3">
               <select className="w-full border border-gray-300 rounded px-3 py-2">
                 <option>Seleziona alunno...</option>
-                <option>Emma 2B</option>
-                <option>Marco 3A</option>
-                <option>Giulia 1C</option>
+                <option>Rossi 2B</option>
+                <option>Bianchi 3A</option>
+                <option>Verdi 1C</option>
               </select>
               <div className="flex space-x-2">
                 <button className="btn-secondary text-sm">Annulla</button>

@@ -1,14 +1,20 @@
 import { useState } from 'react';
-import { Calendar, Users, Settings, BarChart3, Download, Upload, CheckCircle } from 'lucide-react';
+import { Calendar, Users, Settings, BarChart3, Download, Upload, CheckCircle, Info, RotateCcw, Shield } from 'lucide-react';
 import Dashboard from './components/Dashboard';
 import GestioneDati from './components/GestioneDati';
 import GenerazioneOrario from './components/GenerazioneOrario';
 import VisualizzazioneOrario from './components/VisualizzazioneOrario';
+import InfoModal from './components/InfoModal';
+import ResetModal from './components/ResetModal';
+import PrivacyModal from './components/PrivacyModal';
 
 type ActiveTab = 'dashboard' | 'dati' | 'generazione' | 'orario';
 
 function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('dashboard');
+  const [showInfoModal, setShowInfoModal] = useState(false);
+  const [showResetModal, setShowResetModal] = useState(false);
+  const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   const navigation = [
     { id: 'dashboard', label: 'Dashboard', icon: BarChart3, description: 'Panoramica generale' },
@@ -47,6 +53,30 @@ function App() {
             </div>
 
             <div className="flex items-center space-x-3">
+              <button
+                onClick={() => setShowPrivacyModal(true)}
+                className="flex items-center space-x-2 text-gray-600 hover:text-blue-600 transition-colors"
+                title="Informazioni Privacy"
+              >
+                <Shield className="w-5 h-5" />
+                <span className="text-sm font-medium">Privacy</span>
+              </button>
+              <button
+                onClick={() => setShowInfoModal(true)}
+                className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors"
+                title="Guida all'utilizzo"
+              >
+                <Info className="w-5 h-5" />
+                <span className="text-sm font-medium">Info</span>
+              </button>
+              <button
+                onClick={() => setShowResetModal(true)}
+                className="flex items-center space-x-2 text-gray-600 hover:text-red-600 transition-colors"
+                title="Reset sistema"
+              >
+                <RotateCcw className="w-5 h-5" />
+                <span className="text-sm font-medium">Reset</span>
+              </button>
               <button className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors">
                 <Upload className="w-5 h-5" />
                 <span className="text-sm font-medium">Importa</span>
@@ -116,6 +146,11 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Modals */}
+      <InfoModal isOpen={showInfoModal} onClose={() => setShowInfoModal(false)} />
+      <ResetModal isOpen={showResetModal} onClose={() => setShowResetModal(false)} />
+      <PrivacyModal isOpen={showPrivacyModal} onClose={() => setShowPrivacyModal(false)} />
     </div>
   );
 }
